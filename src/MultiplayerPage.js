@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import io from 'socket.io-client';
+import { usePrivy } from '@privy-io/react-auth';
 import './App.css';
 
 const socket = io('https://server.coinshumanity.com');
 
-const MultiplayerPage = ({ nickname }) => {
+const MultiplayerPage = ({ nickname, user }) => {
   const [question, setQuestion] = useState('');
   const [yourAnswer, setYourAnswer] = useState('');
   const [submittedAnswers, setSubmittedAnswers] = useState([]);
   const [timer, setTimer] = useState(60);
   const [canDrawAnswer, setCanDrawAnswer] = useState(true);
   const [answerRevealed, setAnswerRevealed] = useState(false);
+  const { logout } = usePrivy();
+  const navigate = useNavigate();
 
   useEffect(() => {
+    console.log('User info:', user); // Log user info to the console
+
     socket.on('question', (question) => {
       setQuestion(question);
       setYourAnswer('');
@@ -47,7 +53,7 @@ const MultiplayerPage = ({ nickname }) => {
       socket.off('timer');
       socket.off('current_question');
     };
-  }, []);
+  }, [user]);
 
   const handleAnswerSelect = () => {
     if (canDrawAnswer) {
@@ -67,9 +73,31 @@ const MultiplayerPage = ({ nickname }) => {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate('/login');
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  };
+
   return (
     <div className="game-container">
       <h1>Coins Against Humanity - Multiplayer</h1>
+
+      <div className="user-info">
+        {user ? (
+          <>
+            <img src={user.farcaster.pfp} alt={user.name} className="user-picture" />
+            <p>{user.farcaster.username}</p>
+            <br/>
+            <button onClick={handleLogout} className="logout-button">Logout</button>
+          </>
+        ) : (
+          <button onClick={() => navigate('/login')} className="logout-button">Login</button>
+        )}
+      </div>
 
       <div className="card-section">
         <div className="card prompt-card">
