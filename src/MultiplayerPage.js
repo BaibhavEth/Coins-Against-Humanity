@@ -32,10 +32,12 @@ const MultiplayerPage = ({ nickname }) => {
     });
 
     // Request the current question when the component mounts
+    console.log('Component mounted, requesting current question');
     socket.emit('request_current_question');
 
     // Handle the current question response
     socket.on('current_question', (currentQuestion) => {
+      console.log('Received current question:', currentQuestion);
       setQuestion(currentQuestion);
     });
 
@@ -88,9 +90,9 @@ const MultiplayerPage = ({ nickname }) => {
 
       <div className="footer">
         <p>Multiplayer Answers</p>
-        {submittedAnswers.length > 0 ? (
-          <div className="submitted-answers">
-            {submittedAnswers.map((item, index) => (
+        <div className="submitted-answers">
+          {submittedAnswers.length > 0 ? (
+            submittedAnswers.map((item, index) => (
               <div className="submitted-answer-card" key={index}>
                 <p className="answer-text">{item.answer}</p>
                 <div className="answer-meta">
@@ -98,11 +100,11 @@ const MultiplayerPage = ({ nickname }) => {
                   <button className="share-button">Share</button>
                 </div>
               </div>
-            ))}
-          </div>
-        ) : (
-          <p>No answers submitted yet.</p>
-        )}
+            ))
+          ) : (
+            <p>No answers submitted yet.</p>
+          )}
+        </div>
       </div>
     </div>
   );
