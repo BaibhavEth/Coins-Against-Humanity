@@ -1,38 +1,160 @@
-.App {
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.game-container {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+h1 {
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.card-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 300px; /* Adjust height for better mobile compatibility */
+  width: 320px; /* Fixed width for better layout control */
+}
+
+.card {
+  border-radius: 8px;
+  width: 300px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  height: 200px;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: absolute;
+  transition: transform 0.5s ease-in-out;
+  backface-visibility: hidden;
+  cursor: pointer; /* Indicate that the card is interactive */
 }
 
-.App-link {
-  color: #61dafb;
+.prompt-card {
+  background-color: #000;
+  color: #fff;
+  border: 2px solid #fff;
+  z-index: 1;
+  top: 0; /* Always at the top */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.answer-card {
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+  z-index: 2;
+  top: 60px; /* Start below the prompt card */
+  transform: translateY(50px); /* Slide up */
+  height: 40%;
+  justify-content: space-between;
+}
+
+.card p {
+  font-size: 18px;
+  text-align: center;
+  margin: 0;
+  padding: 0 10px;
+}
+
+@media (max-width: 480px) {
+  /* Adjustments for mobile devices */
+  .card-section {
+    width: 100%;
+    height: 300px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .card {
+    width: 70%;
   }
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+.timer-text {
+  font-size: 16px;
+  color: grey;
+  text-align: center;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.submitted-answers {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* Space between the cards */
+}
+
+.submitted-answer-card {
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 8px;
+  width: 280px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px; /* Space between cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.answer-text {
+  font-size: 16px;
+  text-align: left; /* Align text to the left */
+  margin: 0 0 5px 0; /* Slight margin below the answer text */
+}
+
+.answer-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; /* Push meta content to the bottom */
+}
+
+.answer-author {
+  font-size: 14px;
+  color: #666; /* Grey color for author name */
+}
+
+.share-button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.share-button:hover {
+  background-color: #333; /* Darken button on hover */
 }
