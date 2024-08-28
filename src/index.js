@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
+console.log("new");
 root.render(
   <React.StrictMode>
     <PrivyProvider
