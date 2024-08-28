@@ -1,5 +1,7 @@
 # Coins Against Humanity - Multiplayer
 
+## Below is completely AI Generated Readme because nooooo one likes documentation, especially of a freaking side project 
+
 Welcome to **Coins Against Humanity - Multiplayer**, the ultimate game where your wit and humor are put to the test! This project is a fun, interactive multiplayer game inspired by the classic "Cards Against Humanity" but with a crypto twist. Get ready to laugh, compete, and show off your creativity!
 
 ## Table of Contents
