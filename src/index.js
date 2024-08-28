@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <PrivyProvider
-      appId="cm0cpl4n901qt41zsitwlzxby"
+      appId="process.env.REACT_APP_PRIVY_APP_ID"
       config={{
         loginMethods: ['farcaster'],
         appearance: {
