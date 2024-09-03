@@ -1,24 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import io from 'socket.io-client';
-import { usePrivy } from '@privy-io/react-auth';
 import './App.css';
 
 const socket = io('https://server.coinshumanity.com');
 
-const MultiplayerPage = ({ nickname, user }) => {
+const MultiplayerPage = ({ nickname }) => {
   const [question, setQuestion] = useState('');
   const [yourAnswer, setYourAnswer] = useState('');
   const [submittedAnswers, setSubmittedAnswers] = useState([]);
   const [timer, setTimer] = useState(60);
   const [canDrawAnswer, setCanDrawAnswer] = useState(true);
   const [answerRevealed, setAnswerRevealed] = useState(false);
-  const { logout } = usePrivy();
-  const navigate = useNavigate();
 
   useEffect(() => {
-    console.log('User info:', user); // Log user info to the console
-
     socket.on('question', (question) => {
       setQuestion(question);
       setYourAnswer('');
@@ -38,12 +32,10 @@ const MultiplayerPage = ({ nickname, user }) => {
     });
 
     // Request the current question when the component mounts
-    console.log('Component mounted, requesting current question');
     socket.emit('request_current_question');
 
     // Handle the current question response
     socket.on('current_question', (currentQuestion) => {
-      console.log('Received current question:', currentQuestion);
       setQuestion(currentQuestion);
     });
 
@@ -53,7 +45,7 @@ const MultiplayerPage = ({ nickname, user }) => {
       socket.off('timer');
       socket.off('current_question');
     };
-  }, [user]);
+  }, []);
 
   const handleAnswerSelect = () => {
     if (canDrawAnswer) {
@@ -73,31 +65,9 @@ const MultiplayerPage = ({ nickname, user }) => {
     }
   };
 
-  const handleLogout = async () => {
-    try {
-      await logout();
-      navigate('/login');
-    } catch (error) {
-      console.error('Logout failed:', error);
-    }
-  };
-
   return (
     <div className="game-container">
       <h1>Coins Against Humanity - Multiplayer</h1>
-
-      <div className="user-info">
-        {user ? (
-          <>
-            <img src={user.farcaster.pfp} alt={user.name} className="user-picture" />
-            <p>{user.farcaster.username}</p>
-            <br/>
-            <button onClick={handleLogout} className="logout-button">Logout</button>
-          </>
-        ) : (
-          <button onClick={() => navigate('/login')} className="logout-button">Login</button>
-        )}
-      </div>
 
       <div className="card-section">
         <div className="card prompt-card">
@@ -118,9 +88,9 @@ const MultiplayerPage = ({ nickname, user }) => {
 
       <div className="footer">
         <p>Multiplayer Answers</p>
-        <div className="submitted-answers">
-          {submittedAnswers.length > 0 ? (
-            submittedAnswers.map((item, index) => (
+        {submittedAnswers.length > 0 ? (
+          <div className="submitted-answers">
+            {submittedAnswers.map((item, index) => (
               <div className="submitted-answer-card" key={index}>
                 <p className="answer-text">{item.answer}</p>
                 <div className="answer-meta">
@@ -128,11 +98,11 @@ const MultiplayerPage = ({ nickname, user }) => {
                   <button className="share-button">Share</button>
                 </div>
               </div>
-            ))
-          ) : (
-            <p>No answers submitted yet.</p>
-          )}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <p>No answers submitted yet.</p>
+        )}
       </div>
     </div>
   );

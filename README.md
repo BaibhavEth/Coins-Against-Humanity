@@ -1,99 +1,70 @@
-# Coins Against Humanity - Multiplayer
+# Getting Started with Create React App
 
-## Below is completely AI Generated Readme because nooooo one likes documentation, especially of a freaking side project 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Welcome to **Coins Against Humanity - Multiplayer**, the ultimate game where your wit and humor are put to the test! This project is a fun, interactive multiplayer game inspired by the classic "Cards Against Humanity" but with a crypto twist. Get ready to laugh, compete, and show off your creativity!
+## Available Scripts
 
-## Table of Contents
+In the project directory, you can run:
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+### `npm start`
 
-## Introduction
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-j
-In **Coins Against Humanity - Multiplayer**, players are presented with a prompt and must submit the funniest or most creative answer they can think of. The game is played in real-time with other players, and the best answers are revealed at the end of each round. Whether you're a crypto enthusiast or just love a good laugh, this game is for you!
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-## Features
+### `npm test`
 
-- **Real-time Multiplayer**: Play with friends or strangers from around the world.
-- **Witty Prompts**: Enjoy a variety of hilarious and thought-provoking prompts.
-- **User Authentication**: Secure login with Privy, supporting email and wallet login methods.
-- **User Profiles**: Display user names and profile pictures.
-- **Responsive Design**: Play on any device, from desktop to mobile.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Getting Started
+### `npm run build`
 
-### Prerequisites
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-Before you begin, ensure you have the following installed:
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-- [Node.js](https://nodejs.org/) (v14 or later)
-- [npm](https://www.npmjs.com/) (v6 or later)
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Installation
+### `npm run eject`
 
-1. Clone the repository:
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-   ```sh
-   git clone https://github.com/your-username/coins-against-humanity.git
-   cd coins-against-humanity
-   ```
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-2. Install dependencies:
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-   ```sh
-   npm install
-   ```
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-3. Set up your Privy account and get your API keys. Update the `PrivyProvider` configuration in `src/index.js` with your `appId` and other settings.
+## Learn More
 
-### Running the Application
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-1. Start the development server:
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-   ```sh
-   npm start
-   ```
+### Code Splitting
 
-2. Open your browser and navigate to `http://localhost:3000`.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-## Usage
+### Analyzing the Bundle Size
 
-### Logging In
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-- **Login**: Click the "Login" button to authenticate using Privy. You can log in with your email or wallet.
-- **Nickname**: Enter your nickname to join the game.
+### Making a Progressive Web App
 
-### Playing the Game
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-- **Submit Answers**: Click on the answer card to reveal and submit your answer.
-- **View Answers**: See the answers submitted by other players and enjoy the laughs!
+### Advanced Configuration
 
-### Logging Out
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-- **Logout**: Click the "Logout" button to securely log out of your account.
+### Deployment
 
-## Contributing
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-We welcome contributions from the community! If you'd like to contribute, please follow these steps:
+### `npm run build` fails to minify
 
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/your-feature`).
-3. Make your changes and commit them (`git commit -m 'Add some feature'`).
-4. Push to the branch (`git push origin feature/your-feature`).
-5. Open a pull request.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-**Coins Against Humanity - Multiplayer**: Because who doesn't love a good laugh with a side of crypto?
-
-Happy gaming! 🎉
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
